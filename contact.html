@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — Rustenburg TV Centre</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="brand">Rustenburg TV Centre</h1>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </header>
+
+    <main class="container main">
+      <h2>Contact Us</h2>
+      <p>Use the form below to get in touch or visit our workshop.</p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button class="btn" type="submit">Send Message</button>
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+      </form>
+
+      <section class="contact-info">
+        <h3>Workshop</h3>
+        <p>Rustenburg, North West, South Africa</p>
+  <p>Phone: <a href="tel:+27831234567">+27 83 123 4567</a> — <a href="https://wa.me/27831234567?text=Hello%20Rustenburg%20TV%20Centre%2C%20I%20need%20a%20quote%20for%20my%20device." target="_blank" rel="noopener">WhatsApp</a></p>
+      </section>
+      
+      
+      
+      <section class="booking">
+        <h3>Request Home Pick-up</h3>
+        <p>Fill in the form below to request a home pick-up for your appliance. Use the "Verify address" button to preview the location on Google Maps.</p>
+
+        <form id="bookingForm" class="contact-form" novalidate>
+          <label for="firstName">First name</label>
+          <input id="firstName" name="firstName" type="text" required />
+
+          <label for="lastName">Last name</label>
+          <input id="lastName" name="lastName" type="text" required />
+
+          <label for="appliance">Appliance</label>
+          <input id="appliance" name="appliance" type="text" placeholder="e.g. Samsung TV, Microwave" required />
+
+          <label for="address">Address</label>
+          <input id="address" name="address" type="text" placeholder="Street, Suburb, City" required />
+
+          <button type="button" id="verifyAddress" class="btn">Verify address</button>
+
+          <div id="mapPreview" class="map-preview hidden">
+            <iframe id="mapFrame" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <label for="pickupTime">Available for pick-up (date & time)</label>
+          <input id="pickupTime" name="pickupTime" type="datetime-local" required />
+
+          <button class="btn" type="submit">Request Pick-up</button>
+          <p id="bookingMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year-contact"></span> Rustenburg TV Centre</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <!-- Optional config: create assets/js/config.js with `window.SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/XXX/exec'` -->
+    <script src="assets/js/config.js"></script>
+    <script>window.SHEET_WEBAPP_URL = window.SHEET_WEBAPP_URL || '';</script>
+  </body>
+</html>
