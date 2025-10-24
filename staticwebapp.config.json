@@ -1,0 +1,42 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/assets/*", "/images/*", "/api/*"]
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff"
+  },
+  "responseOverrides": {
+    "/api/*": {
+      "statusCode": 200,
+      "headers": {
+        "cache-control": "no-store, must-revalidate"
+      }
+    },
+    "/assets/css/*": {
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    "/assets/js/*": {
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    "/assets/images/optimized/*": {
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    "/assets/images/*": {
+      "headers": {
+        "cache-control": "public, max-age=86400, must-revalidate"
+      }
+    },
+    "/index.html": {
+      "headers": {
+        "cache-control": "no-cache, must-revalidate"
+      }
+    }
+  }
+}

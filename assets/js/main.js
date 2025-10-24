@@ -1,5 +1,13 @@
 // Compiled JS from TypeScript (handwritten to avoid build step)
 document.addEventListener('DOMContentLoaded', function () {
+    // Register service worker for caching when available
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/assets/js/sw.js').then(function (reg) {
+            console.log('Service worker registered:', reg.scope);
+        }).catch(function (err) {
+            console.warn('Service worker registration failed:', err);
+        });
+    }
     var year = new Date().getFullYear().toString();
     document.querySelectorAll('[id^="year"]').forEach(function (el) { el.textContent = year; });
     var btn = document.querySelector('.nav-toggle');
