@@ -56,6 +56,26 @@ body{
 .main{padding:1.25rem 0}
 .site-footer{background:transparent;padding:1rem;border-top:1px solid rgba(255,255,255,0.6)}
 
+/* Brand reel (Authorized Service Center) */
+.brand-reel{margin-top:1rem;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));padding:0.5rem 0;border-radius:8px;border:1px solid rgba(255,255,255,0.06);overflow:hidden}
+.brand-reel .reel-viewport{position:relative;overflow:hidden}
+.brand-reel .reel-track{display:flex;gap:2rem;align-items:center;white-space:nowrap;will-change:transform;}
+.brand-reel .reel-track img{height:48px;opacity:0.95;display:block;filter:grayscale(0%);object-fit:contain}
+
+/* animate: move track leftwards. The track will be duplicated in JS for seamless loop */
+@keyframes reel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.brand-reel.scroll .reel-track{
+  animation: reel-scroll linear infinite;
+  animation-duration: 24s; /* adjust speed */
+}
+
+@media (max-width:700px){
+  .brand-reel .reel-track img{height:36px}
+}
+
 .lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.7);z-index:60}
 .lightbox img{max-width:90%;max-height:80%;border-radius:6px}
 .hidden{display:none}

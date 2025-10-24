@@ -113,3 +113,46 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 });
+
+// Brand reel initialization
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        var reelFiles = [
+            '256px-Telefunken.svg.png',
+            'Kelvinator-Logo-1.svg',
+            'Panasonic-OCNB5mszN_brandlogos.net.svg',
+            'Samsung-logo.png',
+            'lg-corporation-logo-brandlogos.net_xs8rzvrn3.svg',
+            'sony-logo-22C496DbCi_brandlogos.net.svg',
+            'whirlpool-logo-brandlogos.net_nkp47gpzy.svg'
+        ];
+    var basePath = 'assets/images/horizontal%20Reel%20logo%20media/';
+        var track = document.getElementById('brandReelTrack');
+        if (track && reelFiles.length) {
+            // populate track
+            reelFiles.forEach(function (f) {
+                var img = document.createElement('img');
+                img.src = basePath + encodeURIComponent(f);
+                img.alt = f.replace(/[-_\.]/g, ' ').replace(/\s+/g, ' ').replace(/svgpng|svg|png/gi, '').trim();
+                img.setAttribute('role', 'listitem');
+                track.appendChild(img);
+            });
+
+            // duplicate content for seamless scroll
+            var clone = track.cloneNode(true);
+            clone.id = 'brandReelTrackClone';
+            track.parentElement.appendChild(clone);
+
+            // add scroll class to wrapper to trigger animation via CSS
+            var reel = track.closest('.brand-reel');
+            if (reel) {
+                // calculate speed based on content width (optional)
+                // start animation
+                reel.classList.add('scroll');
+            }
+        }
+    }
+    catch (e) {
+        console.warn('Brand reel initialization failed', e);
+    }
+});
