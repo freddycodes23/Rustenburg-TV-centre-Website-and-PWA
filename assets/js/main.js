@@ -126,14 +126,21 @@ document.addEventListener('DOMContentLoaded', function () {
             'sony-logo-22C496DbCi_brandlogos.net.svg',
             'whirlpool-logo-brandlogos.net_nkp47gpzy.svg'
         ];
-    var basePath = 'assets/images/horizontal%20Reel%20logo%20media/';
+        var basePath = 'assets/images/horizontal%20Reel%20logo%20media/';
+        var optimizedBase = 'assets/images/optimized/horizontal%20Reel%20logo%20media/';
         var track = document.getElementById('brandReelTrack');
         if (track && reelFiles.length) {
             // populate track
             reelFiles.forEach(function (f) {
                 var img = document.createElement('img');
-                img.src = basePath + encodeURIComponent(f);
+                // try optimized webp first, fall back to original
+                var extRe = /\.(jpg|jpeg|png|svg|gif)$/i;
+                var webpCandidate = optimizedBase + encodeURIComponent(f.replace(extRe, '.webp'));
+                img.src = webpCandidate;
                 img.alt = f.replace(/[-_\.]/g, ' ').replace(/\s+/g, ' ').replace(/svgpng|svg|png/gi, '').trim();
+                img.onerror = function () {
+                    img.src = basePath + encodeURIComponent(f);
+                };
                 img.setAttribute('role', 'listitem');
                 track.appendChild(img);
             });

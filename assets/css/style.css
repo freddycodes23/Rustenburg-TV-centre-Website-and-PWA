@@ -1,7 +1,7 @@
 :root{
   --bg: linear-gradient(180deg, rgba(248,250,252,1) 0%, rgba(235,239,244,1) 100%);
   /* Background image path: change or override this variable to use a different image */
-  --bg-image: url('assets/images/IMG_20251022_175944.jpg');
+  --bg-image: url('assets/images/optimized/IMG_20251022_175944-1920.webp');
   --glass-bg: rgba(255,255,255,0.55);
   --glass-strong: rgba(255,255,255,0.7);
   --accent: rgba(0,122,255,0.95);

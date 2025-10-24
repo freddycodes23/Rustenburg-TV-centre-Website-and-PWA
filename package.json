@@ -4,9 +4,11 @@
   "description": "Static website for Rustenburg TV Centre (HTML/CSS/TypeScript)",
   "scripts": {
     "build:ts": "tsc -p ./tsconfig.json",
-    "start": "npx serve -s . -l 5000"
+    "start": "npx serve -s . -l 5000",
+    "optimize:images": "node scripts/optimize-images.js"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "sharp": "^0.32.0"
   }
 }
