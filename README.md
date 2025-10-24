@@ -2,34 +2,13 @@
 
 This repository contains a small static website for Rustenburg TV Centre — a home electronics repair shop. The site is written in HTML, CSS and TypeScript and includes pages for Home, About, Gallery and Contact.
 
-How to view locally
-
-1. Serve the folder using a static file server. If you have Node.js installed you can run:
-
-```
-npx serve -s . -l 5000
-```
-
-Then open http://localhost:5000 in your browser.
-
-2. Optional: build TypeScript sources to JavaScript
-
-```
-npm install
-npm run build:ts
-```
-
-Notes
-- Sample images referenced in the gallery are placeholders under `assets/images/` — add your own images there.
+The Company reserves the copyright of the images used in the website.
 
 Google Sheets integration (Apps Script)
 -------------------------------------
-If you'd like bookings to be recorded in Google Sheets and checked via the website, you can deploy a Google Apps Script Web App that reads/writes a sheet. Basic steps:
 
-1. Create a Google Sheet with columns: timestamp, bookingRef, firstName, lastName, phone, appliance, address, pickupTime, status, technicianEstimate
-2. In the Google Apps Script editor (Extensions → Apps Script) create a new script and paste the sample code below.
-3. Deploy as Web App (execute as: Me, who has access: Anyone) and copy the Web App URL.
-4. Create `assets/js/config.js` in this repo and add:
+1. Deploy as Web App (execute as: Me, who has access: Anyone) and copy the Web App URL.
+2. Create `assets/js/config.js` in this repo and add:
 
 ```js
 window.SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/YOUR_DEPLOY_ID/exec'
@@ -78,18 +57,6 @@ function doPost(e) {
 Notes on status flows
 - Technicians can edit the sheet's `status` column to one of: "still in repairs", "expected: <text>", or "ready for pick-up". The `technicianEstimate` column can hold expected completion info.
 
-Deploying as a secure HTTPS demo (GitHub Pages)
----------------------------------------------
-If you want a public HTTPS demo where all pages work cohesively, you can deploy this repository to GitHub Pages. I added a GitHub Actions workflow that publishes the repository root to the `gh-pages` branch on every push to `main`.
-
-Steps:
-
-1. Commit and push your changes to the `main` branch.
-2. The workflow `.github/workflows/deploy.yml` will run and publish to `gh-pages` branch.
-3. Enable GitHub Pages for the repository (if it doesn't enable automatically):
-	- Go to the repo Settings → Pages and set the source to `gh-pages` branch.
-4. Your site will be available at https://<your-github-username>.github.io/<repo-name>/
-
 Config for Apps Script (bookings)
 ---------------------------------
 After you deploy the Apps Script Web App (see previous section), edit `assets/js/config.js` and set:
@@ -97,8 +64,4 @@ After you deploy the Apps Script Web App (see previous section), edit `assets/js
 ```js
 window.SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/YOUR_DEPLOY_ID/exec'
 ```
-
-When the site is published on GitHub Pages, bookings will POST to that URL from the HTTPS origin.
-
-
 # Rustenburg-TV-centre-Website-and-PWA
